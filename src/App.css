@@ -588,6 +588,11 @@ li{
   color: #333;
 }
 .category{
+  margin-right: 2px;
+}
+.categorys{
   margin-right: 20px;
-  
+  height: 35px;
+  border: none;
+ 
 }

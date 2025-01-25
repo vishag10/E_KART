@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
-function Nav({setSearch}) {
+function Nav({setSearch,setCategory}) {
   const [cartCount, setCartCount] = useState(0);
 
   useEffect(() => {
@@ -38,8 +38,9 @@ function Nav({setSearch}) {
           </ul>
         </div>
         <div className="lastlogo">
-          <div className="category"><span>category</span>
-            <select name="" id="">
+          <div className="category">
+            <select name="" className="categorys" onChange={(e) => setCategory(e.target.value)} id="">
+              <option value="CATEGORIES" disabled selected hidden >CATEGORIES</option>
               <option value="All">All</option>
               <option value="beauty">beauty</option>
               <option value="fragrances">fragrances</option>

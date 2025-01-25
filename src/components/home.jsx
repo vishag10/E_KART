@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
  import { Link } from "react-router-dom";
 import "../App.css";
 
-function Home({search}) {
+function Home({search,category}) {
     const [data, setData] = useState([]);
     const [id, setId] = useState();
 
@@ -14,12 +14,18 @@ function Home({search}) {
             });
     }, []);
 
+    const filteredData = data.filter((item) => {
+        const matchesSearch = item.title.toLowerCase().includes(search.toLowerCase());
+        const matchesCategory = category === "All" || item.category === category;
+        return matchesSearch && matchesCategory;
+      });
+
     return (
         <div className="main">
             <div className="session1">
                 <div className="container" id="container">
                     
-                {data.filter((dt) =>dt.title.toLowerCase().includes(search.toLowerCase())).map((item, ind) => (
+                {filteredData.filter((dt) =>dt.title.toLowerCase().includes(search.toLowerCase())).map((item, ind) => (
                             <div className="card" key={ind}>
                                 <div className="content">
                                     <div className="imgg">

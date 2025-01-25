@@ -7,12 +7,13 @@ import Page from "./components/page2";
 import Cart from "./components/cart";
 function App(){
    const [search,setSearch]=useState("")
+   const [category, setCategory] = useState("All");
       return(
         <>
           <BrowserRouter>
-            <Nav setSearch={setSearch} />
+            <Nav setSearch={setSearch} setCategory={setCategory}/>
              <Routes>
-             <Route path="/" element={<Home search={search}/>} />
+             <Route path="/" element={<Home search={search} category={category}/>} />
              <Route path="/page2/:id" Component={Page} />
              <Route path="/cart" Component={Cart} />
              </Routes>
